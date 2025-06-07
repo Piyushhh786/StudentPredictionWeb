@@ -2,10 +2,12 @@
 import { NextResponse} from "next/server";
 import {db} from '@/db/drizzle';
 import {table} from '@/db/schema';
+import { formSchema } from "@/lib/zodSchema";
 export async function POST(req: Request) {
     try {
         const { features, result } = await req.json();
-        
+        const parsed = formSchema.parse({features});
+        console.log(parsed);
         const getInt = (val: string | undefined) => {
             const parsed = parseInt(val ?? '');
             return isNaN(parsed) ? 0 : parsed; // Added NaN check
@@ -21,7 +23,6 @@ export async function POST(req: Request) {
         };
         
         const query = await db.insert(table).values(formTable);
-        console.log(query);
         return NextResponse.json({ success: true }, { status: 200 });
     } catch(err) {
         console.log(err);
