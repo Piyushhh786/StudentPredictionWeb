@@ -46,7 +46,7 @@ export default function PredictPage() {
       });
       const json = await res.json();
       setResult(`Predicted Score: ${json.prediction}`);
-      await fetch('http://localhost:3000/predict/api',{
+      await fetch('https://student-prediction-web.vercel.app/predict/api',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
