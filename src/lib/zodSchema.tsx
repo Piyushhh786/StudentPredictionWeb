@@ -3,9 +3,9 @@ export const formSchema = z.object({
   features: z.object({
     "Hours Studied": z.string().regex(/^\d+$/, "Must be a number").refine(val => {
       const num = Number(val);
-      return num >= 1 && num <= 16;
+      return num >= 0 && num <= 16;
     }, {
-      message: "Must be between 1 and 16",
+      message: "Must be between 0 and 16",
     }),
 
     "Previous Scores": z.string().regex(/^\d+$/, "Must be a number").refine(val => {
@@ -26,9 +26,9 @@ export const formSchema = z.object({
 
     "Sample Question Papers Practiced": z.string().regex(/^\d+$/, "Must be a number").refine(val => {
       const num = Number(val);
-      return num >= 1 && num <= 16;
+      return num >= 0 && num <= 16;
     }, {
-      message: "Must be between 1 and 16",
+      message: "Must be between 0 and 16",
     }),
   }),
 });
