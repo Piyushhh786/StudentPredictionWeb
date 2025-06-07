@@ -1,6 +1,4 @@
-import { time } from 'console';
 import { pgTable, serial, integer,timestamp } from 'drizzle-orm/pg-core';
-import { text } from 'stream/consumers';
 
 export const table = pgTable('table', {
   id: serial('id').primaryKey(),
