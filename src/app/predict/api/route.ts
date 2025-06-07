@@ -22,7 +22,7 @@ export async function POST(req: Request) {
             performanceIndex: Math.round(result),
         };
         
-        const query = await db.insert(table).values(formTable);
+        await db.insert(table).values(formTable);
         return NextResponse.json({ success: true }, { status: 200 });
     } catch(err) {
         console.log(err);
