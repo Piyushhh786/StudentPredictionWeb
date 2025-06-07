@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     try {
         const { features, result } = await req.json();
         const parsed = formSchema.parse({features});
-        console.log(parsed);
+        if(!parsed) throw new Error("Invalid data");
         const getInt = (val: string | undefined) => {
             const parsed = parseInt(val ?? '');
             return isNaN(parsed) ? 0 : parsed; // Added NaN check
