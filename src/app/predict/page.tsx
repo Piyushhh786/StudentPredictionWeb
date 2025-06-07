@@ -55,12 +55,12 @@ export default function PredictPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-gray-200 to-gray-400 p-4">
+    <main className="min-h-screen flex flex-col items-center justify-center p-4">
       <h1 className="text-4xl font-bold text-black text-center mb-6">
         Student Performance Predictor
       </h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-full max-w-md bg-gradient-to-tr from-neutral-300 to-neutral-700 p-6 rounded-lg shadow-lg">
         {/* Hours Studied */}
         <section>
           <Label className='mb-3' >Hours Studied</Label>
